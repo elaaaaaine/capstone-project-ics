@@ -14,3 +14,4 @@ let mySprite = sprites.create(img`
     . . . f 5 f f f 5 f f 5 f . . . 
     . . . f f . . f f . . f f . . . 
     `, SpriteKind.Player)
+tiles.setCurrentTilemap(tilemap`level1`)

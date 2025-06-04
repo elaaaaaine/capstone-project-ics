@@ -13,4 +13,4 @@ e 5 4 4 5 5 5 5 5 5 4 4 5 e . .
 . . . f 5 5 5 5 5 4 5 5 f f . . 
 . . . f 5 f f f 5 f f 5 f . . . 
 . . . f f . . f f . . f f . . . 
-`</field><data>{"commentRefs":[],"fieldData":{"img":null}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="j~d}0tqJ+KLBU{PPW3E/"><field name="MEMBER">Player</field></shadow></value></block></value></block></statement></block></xml>
+`</field><data>{"commentRefs":[],"fieldData":{"img":null}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="j~d}0tqJ+KLBU{PPW3E/"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="set_current_tilemap" id="%;u9HwkFGB?U!MmJ-[2q"><value name="tilemap"><shadow type="tiles_tilemap_editor" id="cy1;EMt!?-b#IoxHR;_v"><field name="tilemap">tilemap`level1`</field><data>{"commentRefs":[],"fieldData":{"tilemap":"level1"}}</data></shadow></value></block></next></block></statement></block></xml>
