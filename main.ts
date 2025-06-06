@@ -1,5 +1,5 @@
 function createSprite () {
-    for (let value of tiles.getTilesByType(assets.tile`myTile`)) {
+    for (let value of tiles.getTilesByType(assets.tile`transparency16`)) {
         mySprite = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . f f f f f f f f . . . . 
