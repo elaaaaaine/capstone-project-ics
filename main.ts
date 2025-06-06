@@ -22,10 +22,18 @@ function createSprite () {
         tiles.setTileAt(value, assets.tile`transparency16`)
         controller.moveSprite(mySprite, 100, 0)
         scene.cameraFollowSprite(mySprite)
-        mySprite.x = 0
+        mySprite.ay = 110
     }
 }
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (mySprite.vy == 0 || numberofjumps == 1) {
+        mySprite.vy = jump_speed
+        numberofjumps += 1
+    }
+})
+let numberofjumps = 0
 let mySprite: Sprite = null
+let jump_speed = 0
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -149,4 +157,10 @@ scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     `)
 tiles.setCurrentTilemap(tilemap`level1`)
+jump_speed = -110
 createSprite()
+game.onUpdate(function () {
+    if (mySprite.vy == 0) {
+        numberofjumps = 0
+    }
+})
