@@ -1,5 +1,27 @@
+namespace SpriteKind {
+    export const coin = SpriteKind.create()
+}
+function createcoins () {
+    for (let value of tiles.getTilesByType(assets.tile`myTile0`)) {
+        mySprite = sprites.create(img`
+            . . b b b b . . 
+            . b 5 5 5 5 b . 
+            b 5 d 3 3 d 5 b 
+            b 5 3 5 5 1 5 b 
+            c 5 3 5 5 1 d c 
+            c d d 1 1 d d c 
+            . f d d d d f . 
+            . . f f f f . . 
+            `, SpriteKind.coin)
+        tiles.placeOnTile(mySprite, value)
+        tiles.setTileAt(value, assets.tile`transparency16`)
+        controller.moveSprite(mySprite, 100, 0)
+        scene.cameraFollowSprite(mySprite)
+        mySprite.ay = 150
+    }
+}
 function createSprite () {
-    for (let value of tiles.getTilesByType(assets.tile`myTile`)) {
+    for (let value of tiles.getTilesByType(assets.tile`transparency16`)) {
         mySprite = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . f f f f f f f f . . . . 
@@ -22,10 +44,20 @@ function createSprite () {
         tiles.setTileAt(value, assets.tile`transparency16`)
         controller.moveSprite(mySprite, 100, 0)
         scene.cameraFollowSprite(mySprite)
-        mySprite.x = 0
+        mySprite.ay = 150
     }
 }
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (mySprite.vy == 0 || numberofjumps == 1) {
+        mySprite.vy = jumpspeed
+        numberofjumps += 1
+    } else if (numberofjumps == 2) {
+    	
+    }
+})
+let numberofjumps = 0
 let mySprite: Sprite = null
+let jumpspeed = 0
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -150,3 +182,10 @@ scene.setBackgroundImage(img`
     `)
 tiles.setCurrentTilemap(tilemap`level1`)
 createSprite()
+jumpspeed = -100
+let coyotejump = 15
+game.onUpdate(function () {
+    if (mySprite.vy == 0) {
+        numberofjumps = 0
+    }
+})
