@@ -68,9 +68,9 @@ function createNewLevel () {
             ....................
             ....................
             `, SpriteKind.levle)
+        tiles.placeOnTile(elle, value)
+        tiles.setTileAt(value, assets.tile`transparency16`)
     }
-    tiles.placeOnTile(elle, value)
-    tiles.setTileAt(value, assets.tile`transparency16`)
 }
 function createCoins () {
     for (let value of tiles.getTilesByType(assets.tile`myTile0`)) {
