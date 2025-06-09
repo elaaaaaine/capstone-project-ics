@@ -35,6 +35,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         numberofjumps += 1
     }
 })
+function createEnemy () {
+	
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.smiles, 500)
@@ -279,6 +282,7 @@ tiles.setCurrentTilemap(tilemap`level1`)
 jump_speed = -80
 createSprite()
 createCoins()
+createNewLevel()
 game.onUpdate(function () {
     if (mySprite.vy == 0) {
         numberofjumps = 0
