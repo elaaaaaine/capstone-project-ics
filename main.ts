@@ -26,7 +26,7 @@ function createSprite () {
         tiles.setTileAt(value, assets.tile`transparency16`)
         controller.moveSprite(mySprite, 100, 0)
         scene.cameraFollowSprite(mySprite)
-        mySprite.ay = 90
+        mySprite.ay = 110
     }
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -35,9 +35,115 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         numberofjumps += 1
     }
 })
-function createEnemy () {
-	
+function loadLevel () {
+    if (true) {
+    	
+    } else {
+    	
+    }
 }
+function createEnemy () {
+    for (let value of tiles.getTilesByType(assets.tile`myTile2`)) {
+        mySprite2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . f f f f f f . . . . 
+            . . . . f f 8 8 8 8 f 8 f . . . 
+            . . . f f 8 8 8 8 f 8 8 8 f . . 
+            . . . f 8 8 8 f f 8 8 8 8 f . . 
+            . . f f f f f 8 8 8 8 8 8 8 f . 
+            . . f 8 8 8 8 8 f f f f 8 8 f . 
+            . . f 8 8 8 e e f e e e f f . . 
+            . . f f e e e d b f d d e . . . 
+            . . . f e e d d 1 f d d e . . . 
+            . . . . e d d d d d d e f . . . 
+            . . . . f 8 8 f 8 8 8 8 f . . . 
+            . . . . f 8 8 f 8 8 8 8 f . . . 
+            . . . . f f f f 8 8 8 8 f f . . 
+            . . . . f f f f f f f f f f . . 
+            . . . . . f f . . . f f f . . . 
+            `, SpriteKind.Enemy)
+        animation.runImageAnimation(
+        mySprite2,
+        [img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . f f f f f f . . . . 
+            . . . . f f 8 8 8 8 f 8 f . . . 
+            . . . f f 8 8 8 8 f 8 8 8 f . . 
+            . . . f 8 8 8 f f 8 8 8 8 f . . 
+            . . f f f f f 8 8 8 8 8 8 8 f . 
+            . . f 8 8 8 8 8 f f f f 8 8 f . 
+            . . f 8 8 8 e e f e e e f f . . 
+            . . f f e e e d b f d d e . . . 
+            . . . f e e d d 1 f d d e . . . 
+            . . . . e d d d d d d e f . . . 
+            . . . . f 8 8 f 8 8 8 8 f . . . 
+            . . . . f 8 8 f 8 8 8 8 f . . . 
+            . . . . f 8 8 f 8 8 8 8 f f . . 
+            . . . . f f f f f f f f f f . . 
+            . . . . . f 8 . . . f 8 f . . . 
+            `,img`
+            . . . . . f f f f f f . . . . . 
+            . . . f f 8 8 8 8 f 8 f . . . . 
+            . . f f 8 8 8 8 f 8 8 8 f . . . 
+            . . f 8 8 8 f f 8 8 8 8 f . . . 
+            . . f f f f 8 8 8 8 8 8 f . . . 
+            . . f 8 8 8 8 f f f f f f . . . 
+            . . f f f f f f e e e f . . . . 
+            . . . f d d d b f d d e . . . . 
+            . . . f d d d 1 f d d e . . . . 
+            . . . f f f d d d d d f f f f . 
+            . . . . f f f f f f f f b b f . 
+            . . . . f 8 8 8 f 8 8 f b b f . 
+            . . . . f 8 8 8 f 8 8 f b f . . 
+            . . . . f 8 8 8 f 8 8 f f . . . 
+            . . . . . f f f f f f . . . . . 
+            . . . . . . f 8 f . . . . . . . 
+            `,img`
+            . . . . . f f f f f f . . . . . 
+            . . . f f 8 8 8 8 f 8 f . . . . 
+            . . f f 8 8 8 8 f 8 8 8 f . . . 
+            . . f 8 8 8 f f 8 8 8 8 f . . . 
+            . f f f f f 8 8 8 8 8 8 8 f . . 
+            . f 8 8 8 8 8 f f f f 8 8 f . . 
+            . f 8 8 8 e e f e e e f f . . . 
+            . f f e e e d b f d d e . . . . 
+            . f f e e d d 1 f d d e . . . . 
+            . f e e d d d d d d e f . . . . 
+            . . f e e e e e d d d f . . . . 
+            . . . . f 8 8 8 f 8 8 f . . . . 
+            . . . . f 8 8 8 f 8 8 f . . . . 
+            . . . f f 8 8 8 f 8 8 f f . . . 
+            . . . f f f f f f f f f f . . . 
+            . . . . f 8 . . . f 8 f . . . . 
+            `,img`
+            . . . . . f f f f f f . . . . . 
+            . . . f f 8 8 8 8 f 8 f . . . . 
+            . . f f 8 8 8 8 f 8 8 8 f . . . 
+            . . f 8 8 8 f f 8 8 8 8 f . . . 
+            . . f f f f 8 8 8 8 8 8 f . . . 
+            . . f 8 8 8 8 f f f f f . . . . 
+            . . f f f f f f e e e f . . . . 
+            . . f f d d d b f d d e . . . . 
+            . . f f d d d 1 f d d e . . . . 
+            . . . f f f d d d d d f f f f . 
+            . . . . f f f f f f f f b b f . 
+            . . . . f 8 8 8 f 8 8 f b b f . 
+            . . . . f 8 8 8 f 8 8 f b f f . 
+            . . . f f 8 8 8 f 8 8 f f f . . 
+            . . . f f f f f f f f f f . . . 
+            . . . . f 8 . . . f 8 f . . . . 
+            `],
+        500,
+        true
+        )
+        tiles.placeOnTile(mySprite2, value)
+        tiles.setTileAt(value, assets.tile`transparency16`)
+        mySprite2.follow(mySprite, 40)
+    }
+}
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
+    game.gameOver(false)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.smiles, 500)
@@ -151,8 +257,12 @@ function createCoins () {
         tiles.setTileAt(value, assets.tile`transparency16`)
     }
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    game.gameOver(false)
+})
 let coin: Sprite = null
 let elle: Sprite = null
+let mySprite2: Sprite = null
 let numberofjumps = 0
 let mySprite: Sprite = null
 let jump_speed = 0
@@ -283,6 +393,7 @@ jump_speed = -80
 createSprite()
 createCoins()
 createNewLevel()
+createEnemy()
 game.onUpdate(function () {
     if (mySprite.vy == 0) {
         numberofjumps = 0
