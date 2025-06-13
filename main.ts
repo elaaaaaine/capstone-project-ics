@@ -63,11 +63,16 @@ function createSprite2 () {
             `, SpriteKind.Player)
         tiles.placeOnTile(prisoner2, value)
         tiles.setTileAt(value, assets.tile`transparency16`)
-        controller.moveSprite(prisoner2, 100, 100)
+        controller.moveSprite(prisoner2, 150, 150)
         scene.cameraFollowSprite(prisoner2)
     }
 }
 function loadLevel () {
+    sprites.destroyAllSpritesOfKind(SpriteKind.coin)
+    sprites.destroyAllSpritesOfKind(SpriteKind.levle)
+    sprites.destroyAllSpritesOfKind(SpriteKind.enemy2)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Player)
     if (currentlevel == 0) {
         scene.setBackgroundImage(img`
             ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -330,6 +335,9 @@ function loadLevel () {
         createEnemy2()
         createSprite2()
         createNewLevel()
+        createCoins()
+    } else if (false) {
+    	
     }
 }
 function createEnemy () {
@@ -429,6 +437,7 @@ function createEnemy () {
         tiles.placeOnTile(mySprite2, value)
         tiles.setTileAt(value, assets.tile`transparency16`)
         mySprite2.follow(prisoner, 40)
+        mySprite2.sayText("oh no! get him!")
     }
 }
 function createEnemy2 () {
